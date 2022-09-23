@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 namespace JsonOppgaveFraTerje
 {
-    public class SortWorkShopAndApprove
+    public class Garage
     {
         public string Bedriftsnavn { get; set; }
         public string Adresse { get; set; }
@@ -20,7 +20,7 @@ namespace JsonOppgaveFraTerje
         public int Organisasjonsnummer { get; set; }
         public int Godkjenningsnummer { get; set; }
 
-        public SortWorkShopAndApprove(string bedriftsnavn, string adresse, string postnummer, string poststed, string godkjenningstyper, int organisasjonsnummer, int godkjenningsnummer)
+        public Garage(string bedriftsnavn, string adresse, string postnummer, string poststed, string godkjenningstyper, int organisasjonsnummer, int godkjenningsnummer)
         {
             Bedriftsnavn = bedriftsnavn;
             Adresse = adresse;
@@ -38,6 +38,17 @@ namespace JsonOppgaveFraTerje
             {
                 PostnummerToInt = int.Parse(Postnummer);
             }
+        }
+
+        public void PrintInfo()
+        {
+            Console.WriteLine(Bedriftsnavn);
+            Console.WriteLine(Adresse);
+            Console.WriteLine(Postnummer);
+            Console.WriteLine(Godkjenningstyper);
+            Console.WriteLine(Organisasjonsnummer);
+            Console.WriteLine(Godkjenningsnummer);
+            Console.WriteLine();
         }
     }
 }

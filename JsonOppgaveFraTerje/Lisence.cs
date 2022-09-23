@@ -6,19 +6,17 @@ using System.Threading.Tasks;
 
 namespace JsonOppgaveFraTerje
 {
-    public class CountyList
+    public class Lisence
     {
         public string Name { get; set; }
         public int IdNumber { get; set; }
-        public int Number1 { get; set; }
-        public int Number2 { get; set; }
+        public string LisenceType { get; set; }
 
-        public CountyList(int idnumber, string name, int number1, int number2)
+        public Lisence(string name, int idNumber, string lisenceType)
         {
-            IdNumber = idnumber;
             Name = name;
-            Number1 = number1;
-            Number2 = number2;
+            IdNumber = idNumber;
+            LisenceType = lisenceType;
         }
     }
 }
