@@ -9,10 +9,10 @@ namespace JsonOppgaveFraTerje
         {
             string fileName = "csvjson.json";
             string jsonFile = File.ReadAllText(fileName);
-            var sortWorkShopAndApprove = JsonConvert.DeserializeObject<List<Garage>>(jsonFile);
+            var garage = JsonConvert.DeserializeObject<List<Garage>>(jsonFile);
 
             CountyManager.FindCountyByNumber();
-            GarageManager.RangePrintInfo(sortWorkShopAndApprove);
+            GarageManager.RangePrintInfo(garage);
 
         }
 
