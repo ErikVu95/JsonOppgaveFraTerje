@@ -7,13 +7,8 @@ namespace JsonOppgaveFraTerje
     {
         static void Main(string[] args)
         {
-            string fileName = "csvjson.json";
-            string jsonFile = File.ReadAllText(fileName);
-            var garage = JsonConvert.DeserializeObject<List<Garage>>(jsonFile);
-
             CountyManager.FindCountyByNumber();
-            GarageManager.RangePrintInfo(garage);
-
+            GarageManager.RangePrintInfo();
         }
 
         public static void MenuPrint()

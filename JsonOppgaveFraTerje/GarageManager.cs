@@ -3,17 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace JsonOppgaveFraTerje
 {
 
     static class GarageManager
     {
-        //  static List<Garage> Lisences = new List<Garage>();
+        static string fileName = "csvjson.json";
+        static string jsonFile = File.ReadAllText(fileName);
+        public static List<Garage> Garages = new List<Garage>();
         public static List<Lisence> Licenses = new List<Lisence>();
 
         static GarageManager()
         {
+            Garages = JsonConvert.DeserializeObject<List<Garage>>(jsonFile);
+
             Licenses.Add(new Lisence("Alkolåsverksted", 1, "ALKOLASVERKSTED"));
             Licenses.Add(new Lisence("Bilelektro-/drivstoffanleggverksted", 2, "BILELEKTRODRIVSTOFFANLEGG"));
             Licenses.Add(new Lisence("Bilbremseverksted", 3, "BILBREMSE"));
@@ -44,13 +49,13 @@ namespace JsonOppgaveFraTerje
             Licenses.Add(new Lisence("Traktorverksted", 28, "TRAKTOR"));
         }
 
-        public static void RangePrintInfo(List<Garage> garages)
+        public static void RangePrintInfo()
         {
             Program.MenuPrint();
             int userInputCounty = Convert.ToInt32(Console.ReadLine());
             Program.LisencePrint();
             int userInputLisence = Convert.ToInt32(Console.ReadLine());
-            FilterCounties(garages, userInputCounty, userInputLisence, Licenses);
+            FilterCounties(Garages, userInputCounty, userInputLisence, Licenses);
           //  FilterLisences(garages, Licenses, userInputLisence);
 
         }
